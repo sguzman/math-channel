@@ -5,11 +5,16 @@ use std::f64::consts::{PI, TAU};
 fn backdrop(view: View) {
     // Restrained concentric strokes, not a starfield or distracting texture.
     for (r, alpha) in [(560.0, 0.23), (490.0, 0.20), (420.0, 0.16)] {
-        let pts = (0..=120).map(|j| {
-            let a = TAU * j as f64 / 120.0;
-            (r * a.cos(), r * a.sin())
-        }).collect::<Vec<_>>();
-        view.add(Line::new().points(pts).stroke(color!("#34435a")).line_width(1.0).opacity(alpha));
+        // Clip the decorative circles analytically into two safe-area arcs.
+        // No oversized off-frame node or accidental line across the composition.
+        for side in [-1.0, 1.0] {
+            let pts = (0..=120).map(|j| {
+                let y = -300.0 + 600.0 * j as f64 / 120.0;
+                let x = side * (r * r - y * y).sqrt();
+                (x, y)
+            }).collect::<Vec<_>>();
+            view.add(Line::new().points(pts).stroke(color!("#34435a")).line_width(1.0).opacity(alpha));
+        }
     }
 }
 fn ring_points(r: f64) -> Vec<(f64, f64)> {
