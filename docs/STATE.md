@@ -57,3 +57,7 @@ User viewed the Gaussian integral example and described it as beautiful. Visual 
 ## Example 0005 — On the Linear Growth of Progress
 
 User approved this separate joke episode, not the hairy ball concept. Square 1080×1080 60 fps, ~11 s, silent, one persistent academic graph. Elapsed integer years and cumulative progress both equal j, 0 through 12; labels and endpoint advance in lockstep; final exact-fit diagnostics and deadpan conclusion. Synthetic definitional data, no empirical study. Twitter-compatible H.264/yuv420p MP4 with faststart, plus source and storyboard. No posting authorized. First compilation/render/QA pending. Earlier examples preserved.
+
+### Example 0005 render verification
+
+[Initial CI passed](https://github.com/sguzman/math-channel/actions/runs/46062656708), zero layout errors and warnings. [Playable artifact](https://github.com/sguzman/math-channel/actions/runs/46062656708/artifacts/15229950023). Independently decoded X-ready H.264 yuv420p MP4 without errors: 1080×1080, 60 fps, 658 frames, 10.966667 s, 231804 bytes. Actual contact sheet confirms incremental years and final exact-fit conclusion. Sampled visual QA revealed diagnostics panel partly occluded the final diagonal despite the passing checker. Moved panel from y=-242 to y=30 into empty space; corrected render pending. Initial playable clip delivered. No posting performed.

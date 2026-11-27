@@ -50,7 +50,7 @@ async fn study(view:View) {
         let s=t.clone();label.opacity().bind(move||if s.get().floor().min(12.0)==v {1.0}else{0.0});
     }
 
-    let box_=view.add(Group::new().x(274.0).y(-242.0).opacity(0.0));
+    let box_=view.add(Group::new().x(274.0).y(30.0).opacity(0.0));
     box_.add(Rect::new().width(298.0).height(169.0).fill(color!("#f7f6f1")).stroke(ink()).line_width(1.0));
     box_.add(Txt::new().text("MODEL DIAGNOSTICS").font_size(18).weight(600).fill(ink()).y(-58.0));
     box_.add(Math::new("R^2 = 1.0000").size(34.0).color(blue()).y(-16.0));

@@ -9,3 +9,5 @@ CI builds the locked Rust/Oxframe project and publishes an H.264 yuv420p faststa
 Suggested caption: **after extensive analysis we confirmed that years continue to pass**
 
 Render: `nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0005 -- render --out out/example-0005.mp4`.
+
+Initial [render passed](https://github.com/sguzman/math-channel/actions/runs/46062656708) with zero checker issues; independently decoded X-ready MP4, 658 frames, 10.967 seconds. [Initial artifact](https://github.com/sguzman/math-channel/actions/runs/46062656708/artifacts/15229950023). Visual review found partial occlusion of the diagonal by diagnostics; panel repositioned into empty space, corrected render pending.
