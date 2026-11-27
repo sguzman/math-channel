@@ -33,3 +33,7 @@ Run `nix develop -c cargo run --release --bin example-0001 -- render --out out/e
 [Download the actual MP4 and storyboard archive](https://github.com/sguzman/math-channel/actions/runs/46025896423/artifacts/15212895179) · [Successful CI run](https://github.com/sguzman/math-channel/actions/runs/46025896423).
 
 Render from commit `6986e451b9420179beb96d21de4b8bb95a265e75`: H.264, 1280×720, 30 fps, 834 frames, 27.8 seconds. Independent FFmpeg decoding completed without errors. The actual contact sheet was inspected. Oxframe reported zero errors and one dead-time warning during the 3D rotation; sampled frames of that region are distinct. User editorial feedback remains pending. The artifact is subject to GitHub Actions retention; the source remains in Git.
+
+## Human visual QA — 2026-11-27
+
+Overall visual quality received positive feedback from the channel owner after watching the rendered MP4. Scene transitions were too abrupt. Preserve the current visual direction; refine transitions in the next revision. No permanent branding or audio decision yet.

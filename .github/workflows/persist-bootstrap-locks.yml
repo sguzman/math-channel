@@ -29,8 +29,9 @@ jobs:
       - uses: cachix/install-nix-action@v31
       - name: Validate lockfiles
         run: |
+          git add -f Cargo.lock flake.lock
           nix develop --no-update-lock-file -c cargo metadata --locked --format-version 1 > /dev/null
-          git diff --exit-code -- Cargo.toml flake.nix
+          git diff HEAD --exit-code -- Cargo.toml flake.nix
           echo '60bd31336337003e78e1ff3117ec879242214de9c5e08fc3dd2f7bb07d6fb6cf  Cargo.lock' | sha256sum -c -
           echo 'b9d82dd51904dd3d4a93becd48f7bb84273ae6b165b9e2dc99caa3f6ae54ea2b  flake.lock' | sha256sum -c -
       - name: Commit verified locks
