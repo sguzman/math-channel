@@ -48,3 +48,7 @@ Original source and creative materials explicitly included in this repository ar
 ## Example 0004
 
 [The Gaussian Integral](episodes/0004-gaussian-integral/README.md) — native 1440p60 production example, proof, 3D Gaussian sculpture and YouTube delivery package.
+
+## Example 0005
+
+[On the Linear Growth of Progress](episodes/0005-linear-progress/README.md) — a short academic-figure meme for social media.

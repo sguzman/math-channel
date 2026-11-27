@@ -1,0 +1,64 @@
+name: Linear progress meme
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/bin/example-0005.rs'
+      - 'episodes/0005-linear-progress/**'
+      - '.github/workflows/example-0005.yml'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'flake.nix'
+      - 'flake.lock'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-oxframe-0.24.3-${{ hashFiles('Cargo.toml', 'Cargo.lock', 'flake.nix', 'flake.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-oxframe-0.24.3-
+      - name: Build locked episode
+        run: nix develop --no-update-lock-file -c cargo build --locked --release --bin example-0005
+      - name: Render and verify playable MP4
+        run: |
+          mkdir -p out
+          nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0005 -- render --out out/example-0005.mp4
+          nix develop --no-update-lock-file -c ffmpeg -v error -y -i out/example-0005.mp4 -c:v libx264 -crf 19 -preset medium -pix_fmt yuv420p -movflags +faststart -an out/example-0005-x.mp4
+          nix develop --no-update-lock-file -c ffmpeg -v error -xerror -i out/example-0005-x.mp4 -f null -
+          nix develop --no-update-lock-file -c ffprobe -v error -show_format -show_streams out/example-0005.mp4 > out/example-0005-probe.txt
+          nix develop --no-update-lock-file -c ffmpeg -v error -xerror -i out/example-0005.mp4 -f null -
+          nix develop --no-update-lock-file -c ffmpeg -v error -y -i out/example-0005.mp4 -vf 'fps=1,scale=270:-2,tile=4x3:padding=4:margin=4' -frames:v 1 out/example-0005-storyboard.png
+      - name: Upload playable episode
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-0005-video
+          path: |
+            out/example-0005.mp4
+            out/example-0005-x.mp4
+            out/example-0005-probe.txt
+            out/example-0005-storyboard.png
+          if-no-files-found: error
+      - name: Check layout and motion
+        run: nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0005 -- check
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-0005-diagnostics
+          path: out/check/
+          if-no-files-found: warn

@@ -53,3 +53,7 @@ Gaussian integral: five continuous scenes covering graph, square, density, nativ
 ### Example 0004 visual feedback
 
 User viewed the Gaussian integral example and described it as beautiful. Visual direction accepted. No separate listening assessment was stated; do not infer one. User requested a concept for a short cute mathematical joke video for Twitter/X. Concept only at this point: hairy ball theorem, deadpan scientific presentation with a spherical creature and an unavoidable tangent-vector zero. No joke-video production or publication authorized yet.
+
+## Example 0005 — On the Linear Growth of Progress
+
+User approved this separate joke episode, not the hairy ball concept. Square 1080×1080 60 fps, ~11 s, silent, one persistent academic graph. Elapsed integer years and cumulative progress both equal j, 0 through 12; labels and endpoint advance in lockstep; final exact-fit diagnostics and deadpan conclusion. Synthetic definitional data, no empirical study. Twitter-compatible H.264/yuv420p MP4 with faststart, plus source and storyboard. No posting authorized. First compilation/render/QA pending. Earlier examples preserved.
