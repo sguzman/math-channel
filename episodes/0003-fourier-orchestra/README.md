@@ -22,4 +22,9 @@ A complicated shape can be made from simple rotations. One circle draws a sine w
 
 `nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0003 -- render --out out/example-0003.mp4`
 
-Dedicated workflow produces MP4, full decode verification, probe and contact sheet before layout checks. Source: [example-0003.rs](../../src/bin/example-0003.rs). Render and human QA pending.
+Dedicated workflow produces MP4, full decode verification, probe and contact sheet before layout checks. Source: [example-0003.rs](../../src/bin/example-0003.rs). Render completed; human QA pending.
+
+
+## Render verification
+
+[Successful CI run 46053096376](https://github.com/sguzman/math-channel/actions/runs/46053096376) at commit ac0786e0ac33ecbc685d105e67394670949c1064. [Playable MP4 and storyboard artifact](https://github.com/sguzman/math-channel/actions/runs/46053096376/artifacts/15224894017). Independently downloaded and decoded all 1908 frames without errors: H.264, 1280×720, 30 fps, 63.6 seconds. Actual storyboard inspected: title, linked epicycles and waveform, rotating 3D harmonic sculpture and spectrum, convergence and final equation all present. Layout checker: zero errors, two dead-time warnings at 31.00–41.10 and 51.70–56.30 seconds. Decoded 760×400 region hashes at each integer second 31–40 and 52–56 are all distinct within their respective intervals, and contact sheet shows changes in sculpture and plot; these warnings do not establish frozen footage. Sampled visual QA is not full human editorial review. Await user feedback on the actual video; no other work required unless defects are identified.

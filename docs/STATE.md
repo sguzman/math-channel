@@ -15,7 +15,7 @@
 
 ## Next steps
 
-Examples 0001 and 0002 are complete. Example 0003 approved: render, inspect, fix actual defects, deliver playable MP4 and record user QA.
+Examples 0001 and 0002 are complete. Example 0003 rendered and technically verified; human visual QA is the remaining acceptance criterion.
 
 No local install required for the CI trial.
 
@@ -35,3 +35,8 @@ The Circle Hidden in Exponentials: cinematic Euler-formula episode, one continuo
 An Orchestra of Circles: Fourier **series** of a square wave (not the continuous Fourier transform). Continuous linked epicycles, wave trace, native 3D separated harmonic sculpture, amplitude spectrum and convergence from 1 to 17 odd harmonics. Source and dedicated locked CI configured; compilation, render and actual QA pending. Silent prototype; previous episodes preserved.
 
 - First Example 0003 [CI](https://github.com/sguzman/math-channel/actions/runs/46052481962) failed compilation: palette helper was named `mut`, a Rust reserved keyword. Renamed helper and all calls to `muted_color`; corrected compile/render pending.
+
+
+## Render verification
+
+[Successful CI run 46053096376](https://github.com/sguzman/math-channel/actions/runs/46053096376) at commit ac0786e0ac33ecbc685d105e67394670949c1064. [Playable MP4 and storyboard artifact](https://github.com/sguzman/math-channel/actions/runs/46053096376/artifacts/15224894017). Independently downloaded and decoded all 1908 frames without errors: H.264, 1280×720, 30 fps, 63.6 seconds. Actual storyboard inspected: title, linked epicycles and waveform, rotating 3D harmonic sculpture and spectrum, convergence and final equation all present. Layout checker: zero errors, two dead-time warnings at 31.00–41.10 and 51.70–56.30 seconds. Decoded 760×400 region hashes at each integer second 31–40 and 52–56 are all distinct within their respective intervals, and contact sheet shows changes in sculpture and plot; these warnings do not establish frozen footage. Sampled visual QA is not full human editorial review. Await user feedback on the actual video; no other work required unless defects are identified.
