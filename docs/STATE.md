@@ -15,11 +15,17 @@
 
 ## Next steps
 
-1. Example 0002 is approved; build/render/inspect its actual MP4, fix blocking defects, and deliver the artifact. Keep Example 0001 unchanged as visual baseline.
-2. Obtain human QA only after a verified playable episode is available. Do not expand into branding or voice production without approval.
+Example 0002 is complete. No remaining work in the approved episode scope. Await a new production direction before starting another episode or branding/audio work.
 
 No local install required for the CI trial.
 
 ## Example 0002
 
 The Circle Hidden in Exponentials: cinematic Euler-formula episode, one continuous circle/wave scene with shared angle, native mesh helix with projection traces, matched crossfade and half-turn identity finale. Initial [CI run](https://github.com/sguzman/math-channel/actions/runs/46048654670) compiled, rendered, fully decoded and uploaded [the playable draft](https://github.com/sguzman/math-channel/actions/runs/46048654670/artifacts/15222829935). Independently decoded all 1684 frames, H.264 1280×720 at 30 fps, 56.133 s. Actual storyboard inspected: title, unit circle, synchronized traces, 3D helix/projections and identity finale all present. Checker errors were three oversized decorative concentric rings intentionally cropped by frame; changed them to mathematically clipped arcs within safe margins. The sole dead-time warning at 30.70–40.10 s is contradicted by eight distinct decoded frame hashes of the 3D region at one-second intervals (31–38 s) and visible motion in storyboard. Corrected render/check pending; draft delivered as a preview, not final QA. See [episode notes](../episodes/0002-euler-circle/README.md).
+
+### Example 0002 acceptance — 2026-11-27
+
+- User watched the playable initial render and approved the overall visual quality, smooth movement and transitions.
+- Corrected render at 22611eb5c39f688259eeaefc8e4dbc63339f6571 passed [all CI steps](https://github.com/sguzman/math-channel/actions/runs/46049091156), including locked build, render, full decode and layout check: zero errors, one previously investigated 3D dead-time warning. [Final video and storyboard](https://github.com/sguzman/math-channel/actions/runs/46049091156/artifacts/15222904344).
+- Only decorative background arc clipping changed between the approved preview and corrected render; corrected render is CI-verified, not separately viewed by the user. The earlier preview supplied the human visual QA.
+- Example 0002 accepted; Oxframe remains the primary renderer. Preserve both examples. No further work on this episode required absent new direction. Narration and channel branding remain deferred.
