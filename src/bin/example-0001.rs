@@ -9,13 +9,13 @@ async fn hook(view: View) {
     question.fade_in().await;
     let detail = view.add(Txt::new().text("Length, area and volume do not grow alike.").font_size(30).y(116.0).opacity(0.0));
     detail.fade_in().await;
-    wait_for(2.8).await;
+    wait_for(2.4).await;
 }
 
 #[oxframe::scene]
 async fn area(view: View) {
-    view.add(Txt::new().text("01  /  Two dimensions").font_size(30).fill(Muted).y(-300.0));
-    view.add(Txt::new().text("Double the side length").font_size(48).weight(700).y(-242.0));
+    view.add(Txt::new().text("01  /  Two dimensions").font_size(30).fill(Muted).y(-270.0));
+    view.add(Txt::new().text("Double the side length").font_size(48).weight(700).y(-210.0));
     let one = view.add(Rect::new().width(100.0).height(100.0).fill(Accent).x(-330.0).y(0.0).opacity(0.0));
     one.fade_in().await;
     view.add(Math::new("1 times 1 = 1").size(40.0).x(-330.0).y(175.0));
@@ -32,13 +32,13 @@ async fn area(view: View) {
     result.fade_in().await;
     let note = view.add(Txt::new().text("Four unit squares, not two.").font_size(32).y(278.0).opacity(0.0));
     note.fade_in().await;
-    wait_for(3.2).await;
+    wait_for(2.3).await;
 }
 
 #[oxframe::scene]
 async fn volume(view: View) {
-    view.add(Txt::new().text("02  /  Three dimensions").font_size(30).fill(Muted).y(-300.0));
-    view.add(Txt::new().text("Now double the depth, too.").font_size(46).weight(700).y(-242.0));
+    view.add(Txt::new().text("02  /  Three dimensions").font_size(30).fill(Muted).y(-270.0));
+    view.add(Txt::new().text("Now double the depth, too.").font_size(46).weight(700).y(-210.0));
     let world = Scene3d::new();
     world.camera().position().set(Vec3::new(4.4, 3.5, 5.8));
     let cluster = world.add(Mesh::group());
@@ -66,14 +66,14 @@ async fn volume(view: View) {
     let eight = view.add(Math::new("= 8").size(100.0).color(Accent).x(325.0).y(74.0).opacity(0.0));
     eight.fade_in().await;
     view.add(Txt::new().text("Eight unit cubes  ·  exploded view").font_size(28).y(288.0));
-    wait_for(3.0).await;
+    wait_for(2.3).await;
 }
 
 #[oxframe::scene]
 async fn powers(view: View) {
-    view.add(Txt::new().text("03  /  The pattern").font_size(30).fill(Muted).y(-300.0));
+    view.add(Txt::new().text("03  /  The pattern").font_size(30).fill(Muted).y(-270.0));
     let axes = view.add(Axes::new().x_range(0.0..3.0).y_range(0.0..27.0)
-        .width(630.0).height(420.0).x(-250.0).y(30.0));
+        .width(580.0).height(350.0).x(-195.0).y(10.0));
     let linear = axes.plot(|x| x).stroke(color!("#7dd3fc"));
     let square = axes.plot(|x| x*x).stroke(color!("#fbbf24"));
     let cubic = axes.plot(|x| x*x*x).stroke(color!("#a78bfa"));
@@ -86,8 +86,8 @@ async fn powers(view: View) {
     let s = Signal::new(0.0);
     axes.point_on(&cubic, s.clone());
     s.to(3.0, 3.5).await;
-    view.add(Txt::new().text("Scale factor s").font_size(26).x(-250.0).y(286.0));
-    wait_for(2.5).await;
+    view.add(Txt::new().text("Scale factor s").font_size(26).x(-195.0).y(280.0));
+    wait_for(2.3).await;
 }
 
 #[oxframe::scene]
@@ -97,7 +97,7 @@ async fn conclusion(view: View) {
     stagger(0.12, formula.paths(), |glyph| glyph.pop_in()).await;
     view.add(Txt::new().text("Scale every length by s in d dimensions.").font_size(34).y(145.0));
     view.add(Txt::new().text("The d-dimensional measure scales by s to the power d.").font_size(28).fill(Muted).y(205.0));
-    wait_for(4.0).await;
+    wait_for(2.4).await;
 }
 
 fn main() {

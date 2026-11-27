@@ -10,7 +10,7 @@
 ## Current checkpoint
 
 - Bootstrap commit 10bba2da349e13906516ecaea9e6fa5d975fe680: [CI passed](https://github.com/sguzman/math-channel/actions/runs/45919333312), including dependency resolution, compilation, headless render and FFmpeg probe. Generated lockfiles were uploaded but are not yet committed; visual smoke QA is not established.
-- Example 0001: square-cube law, text-led five-scene demo. Separate Rust binary with Oxframe math and 3d features; CI now renders the original smoke and new episode and exports a contact sheet. New code compilation, rendering and visual QA remain unverified at this checkpoint.
+- Example 0001: square-cube law, text-led five-scene demo. Separate Rust binary with Oxframe math and 3d features; CI now renders the original smoke and new episode and exports a contact sheet. [First episode CI](https://github.com/sguzman/math-channel/actions/runs/45922381331) compiled but failed the layout check before rendering: overlapping scale-factor label, safe-area warnings and static pauses. The subsequent fix reduces the chart dimensions, moves labels into the safe area, shortens pauses, and renders/decodes/uploads the MP4 before the layout check. Corrected run and actual visual QA remain unverified. The native 3D animation produced a static-time warning from the checker; whether it is a false positive remains to be checked visually.
 - No branding or upload selected. No audio recorded.
 
 ## Next steps
