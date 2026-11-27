@@ -40,3 +40,7 @@ Original source and creative materials explicitly included in this repository ar
 ## Example 0002
 
 [The Circle Hidden in Exponentials](episodes/0002-euler-circle/README.md) — a more ambitious Euler-formula visual prototype with continuous 2D motion and native 3D geometry. Render with `nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0002 -- render --out out/example-0002.mp4`. See the dedicated [CI workflow](.github/workflows/example-0002.yml). Initial render unverified.
+
+## Example 0003
+
+[An Orchestra of Circles](episodes/0003-fourier-orchestra/README.md) — Fourier series, rotating phasors, spectral sculpture and convergence. Render via the dedicated example-0003 binary and workflow.

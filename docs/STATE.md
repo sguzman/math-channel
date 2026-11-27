@@ -15,7 +15,7 @@
 
 ## Next steps
 
-Example 0002 is complete. No remaining work in the approved episode scope. Await a new production direction before starting another episode or branding/audio work.
+Examples 0001 and 0002 are complete. Example 0003 approved: render, inspect, fix actual defects, deliver playable MP4 and record user QA.
 
 No local install required for the CI trial.
 
@@ -29,3 +29,7 @@ The Circle Hidden in Exponentials: cinematic Euler-formula episode, one continuo
 - Corrected render at 22611eb5c39f688259eeaefc8e4dbc63339f6571 passed [all CI steps](https://github.com/sguzman/math-channel/actions/runs/46049091156), including locked build, render, full decode and layout check: zero errors, one previously investigated 3D dead-time warning. [Final video and storyboard](https://github.com/sguzman/math-channel/actions/runs/46049091156/artifacts/15222904344).
 - Only decorative background arc clipping changed between the approved preview and corrected render; corrected render is CI-verified, not separately viewed by the user. The earlier preview supplied the human visual QA.
 - Example 0002 accepted; Oxframe remains the primary renderer. Preserve both examples. No further work on this episode required absent new direction. Narration and channel branding remain deferred.
+
+## Example 0003
+
+An Orchestra of Circles: Fourier **series** of a square wave (not the continuous Fourier transform). Continuous linked epicycles, wave trace, native 3D separated harmonic sculpture, amplitude spectrum and convergence from 1 to 17 odd harmonics. Source and dedicated locked CI configured; compilation, render and actual QA pending. Silent prototype; previous episodes preserved.
