@@ -1,7 +1,7 @@
 # Project instructions
 
 - Read docs/STATE.md and docs/ENGINE-TRIAL.md before working.
-- The channel name is deferred. Do not choose branding or publish videos without approval.
+- The approved channel name is Black Axiom. Read branding/README.md and branding/tokens.json before new visual work. Preserve the approved digital black/red identity; do not change branding or publish videos without approval.
 - Nix flakes are mandatory. No global installs, npm, ad hoc downloaded binaries or Python unless explicitly adopting a Nix-managed Manim fallback.
 - Prefer Rust and Typst. Keep research, narration, references and shot specifications separate from renderer code.
 - Use GitHub Actions for build and preview checks where practical; preserve caches and avoid requiring repeated local downloads.

@@ -61,3 +61,7 @@ User approved this separate joke episode, not the hairy ball concept. Square 108
 ### Example 0005 render verification
 
 [Initial CI passed](https://github.com/sguzman/math-channel/actions/runs/46062656708), zero layout errors and warnings. [Playable artifact](https://github.com/sguzman/math-channel/actions/runs/46062656708/artifacts/15229950023). Independently decoded X-ready H.264 yuv420p MP4 without errors: 1080×1080, 60 fps, 658 frames, 10.966667 s, 231804 bytes. Actual contact sheet confirms incremental years and final exact-fit conclusion. Sampled visual QA revealed diagnostics panel partly occluded the final diagonal despite the passing checker. Moved panel from y=-242 to y=30 into empty space; corrected render pending. Initial playable clip delivered. No posting performed.
+
+## Black Axiom identity — 2026-11-27
+
+Owner approved name Black Axiom and the digital-first revision of concept II, explicitly highlighting black and red. Brand standard v1.0, tokens and editable geometric mark variants plus title composition are in branding/. This is the durable source of truth for new visual work. Exact construction, typography defaults and production rules are assistant implementation decisions based on the approved concept; no claim of installed fonts, rendered ident, finalized banner exports, trademark clearance or account creation. Existing episodes remain untouched. User requested the spec and repository persistence; no further brand implementation or publishing approved at this checkpoint.

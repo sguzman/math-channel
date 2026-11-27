@@ -1,6 +1,6 @@
-# Math channel
+# Black Axiom
 
-A public production repository for mathematical explanations, experiments, and animated videos. The channel name and visual identity are intentionally undecided.
+A public production repository for mathematical explanations, experiments, and animated videos. The channel is Black Axiom. See the [approved brand standard](branding/README.md) and [design tokens](branding/tokens.json).
 
 ## Status
 
@@ -31,6 +31,7 @@ The example is a silent, text-led visual prototype; no permanent branding or pub
 - `src/`: renderer-specific scene code.
 - `episodes/`: renderer-independent exposition, narration, shot plans, references and mathematical data.
 - `docs/`: production decisions, engine acceptance criteria, current state.
+- `branding/`: approved identity, design tokens and editable SVG source assets.
 - `out/`: generated previews, reports and videos; ignored by Git.
 
 ## License
