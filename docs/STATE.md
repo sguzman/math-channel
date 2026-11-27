@@ -15,7 +15,7 @@
 
 ## Next steps
 
-Examples 0001 and 0002 are complete. Example 0003 rendered and technically verified; human visual QA is the remaining acceptance criterion.
+Examples 0001–0003 are accepted; user said Example 0003 was good. Example 0004 approved: native 1440p60 Gaussian integral production sample; render, verify, synchronize captions, review audio/thumbnail, deliver and obtain human QA.
 
 No local install required for the CI trial.
 
@@ -40,3 +40,7 @@ An Orchestra of Circles: Fourier **series** of a square wave (not the continuous
 ## Render verification
 
 [Successful CI run 46053096376](https://github.com/sguzman/math-channel/actions/runs/46053096376) at commit ac0786e0ac33ecbc685d105e67394670949c1064. [Playable MP4 and storyboard artifact](https://github.com/sguzman/math-channel/actions/runs/46053096376/artifacts/15224894017). Independently downloaded and decoded all 1908 frames without errors: H.264, 1280×720, 30 fps, 63.6 seconds. Actual storyboard inspected: title, linked epicycles and waveform, rotating 3D harmonic sculpture and spectrum, convergence and final equation all present. Layout checker: zero errors, two dead-time warnings at 31.00–41.10 and 51.70–56.30 seconds. Decoded 760×400 region hashes at each integer second 31–40 and 52–56 are all distinct within their respective intervals, and contact sheet shows changes in sculpture and plot; these warnings do not establish frozen footage. Sampled visual QA is not full human editorial review. Await user feedback on the actual video; no other work required unless defects are identified.
+
+## Example 0004
+
+Gaussian integral: five continuous scenes covering graph, square, density, native 3D radial Gaussian wire sculpture, polar area element and evaluation. Target 2560×1440 at 60 fps; original procedural stereo ambient audio, 720p preview, captions, thumbnail, upload copy. All source committed; first compile/render pending. Captions are provisional until actual scene timestamps are measured. No narration or permanent branding; no upload authorized. Prior examples preserved.

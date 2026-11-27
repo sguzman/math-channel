@@ -44,3 +44,7 @@ Original source and creative materials explicitly included in this repository ar
 ## Example 0003
 
 [An Orchestra of Circles](episodes/0003-fourier-orchestra/README.md) — Fourier series, rotating phasors, spectral sculpture and convergence. Render via the dedicated example-0003 binary and workflow.
+
+## Example 0004
+
+[The Gaussian Integral](episodes/0004-gaussian-integral/README.md) — native 1440p60 production example, proof, 3D Gaussian sculpture and YouTube delivery package.

@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:10,000
+The Gaussian integral: find the total area under e to the minus x squared.
+
+2
+00:00:10,000 --> 00:00:20,000
+There is no elementary antiderivative, but the total area is exact.
+
+3
+00:00:20,000 --> 00:00:34,000
+Square the integral and use two independent variables.
+
+4
+00:00:34,000 --> 00:00:49,000
+The resulting Gaussian density is rotationally symmetric.
+
+5
+00:00:49,000 --> 00:01:02,000
+Use polar coordinates: the area element is r dr d theta.
+
+6
+00:01:02,000 --> 00:01:15,000
+Evaluate the radial integral to obtain one half, and the angular integral to obtain two pi.
+
+7
+00:01:15,000 --> 00:01:21,000
+The original positive integral is the square root of pi.

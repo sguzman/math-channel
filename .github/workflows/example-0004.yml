@@ -1,0 +1,63 @@
+name: Gaussian integral production
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/bin/example-0004.rs'
+      - 'episodes/0004-gaussian-integral/**'
+      - '.github/workflows/example-0004.yml'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'flake.nix'
+      - 'flake.lock'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-oxframe-0.24.3-${{ hashFiles('Cargo.toml', 'Cargo.lock', 'flake.nix', 'flake.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-oxframe-0.24.3-
+      - name: Build locked episode
+        run: nix develop --no-update-lock-file -c cargo build --locked --release --bin example-0004
+      - name: Render and package master
+        run: |
+          mkdir -p out
+          nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0004 -- render --out out/example-0004-visual.mp4
+          nix develop --no-update-lock-file -c bash episodes/0004-gaussian-integral/package.sh
+      - name: Upload playable episode
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-0004-video
+          path: |
+            out/example-0004.mp4
+            out/example-0004-probe.txt
+            out/example-0004-storyboard.png
+            out/example-0004-thumbnail.png
+            out/example-0004-captions.srt
+            out/example-0004-preview.mp4
+            out/example-0004-upload.md
+          if-no-files-found: error
+      - name: Check layout and motion
+        run: nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0004 -- check
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-0004-diagnostics
+          path: out/check/
+          if-no-files-found: warn
