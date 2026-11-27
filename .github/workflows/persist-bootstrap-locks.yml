@@ -1,0 +1,42 @@
+name: Persist verified bootstrap locks
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/persist-bootstrap-locks.yml']
+permissions:
+  actions: read
+  contents: write
+jobs:
+  persist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm manifests match successful render
+        run: |
+          git fetch --depth=1 origin 6986e451b9420179beb96d21de4b8bb95a265e75
+          git diff --exit-code 6986e451b9420179beb96d21de4b8bb95a265e75 HEAD -- Cargo.toml flake.nix
+          test ! -e Cargo.lock
+          test ! -e flake.lock
+      - uses: actions/download-artifact@v4
+        with:
+          name: resolved-lockfiles
+          run-id: 46025896423
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify exact artifact bytes
+        run: |
+          echo '60bd31336337003e78e1ff3117ec879242214de9c5e08fc3dd2f7bb07d6fb6cf  Cargo.lock' | sha256sum -c -
+          echo 'b9d82dd51904dd3d4a93becd48f7bb84273ae6b165b9e2dc99caa3f6ae54ea2b  flake.lock' | sha256sum -c -
+      - uses: cachix/install-nix-action@v31
+      - name: Validate lockfiles
+        run: |
+          nix develop --no-update-lock-file -c cargo metadata --locked --format-version 1 > /dev/null
+          git diff --exit-code -- Cargo.toml flake.nix
+          echo '60bd31336337003e78e1ff3117ec879242214de9c5e08fc3dd2f7bb07d6fb6cf  Cargo.lock' | sha256sum -c -
+          echo 'b9d82dd51904dd3d4a93becd48f7bb84273ae6b165b9e2dc99caa3f6ae54ea2b  flake.lock' | sha256sum -c -
+      - name: Commit verified locks
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f Cargo.lock flake.lock
+          git commit -m "Persist exact lockfiles from successful episode render"
+          git push origin HEAD:main

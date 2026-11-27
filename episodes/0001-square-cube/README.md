@@ -27,3 +27,9 @@ Narration is a draft for possible later recording; the current episode intention
 ## Rendering and QA
 
 Run `nix develop -c cargo run --release --bin example-0001 -- render --out out/example-0001.mp4`. CI checks and renders a 1280×720, 30 fps MP4, records ffprobe metadata and creates a contact sheet. Visual inspection is still required: text legibility and boundaries, eight-cube geometry, plot correspondence and shot pacing. The scene code lives at [src/bin/example-0001.rs](../../src/bin/example-0001.rs). No finished video is committed to Git.
+
+## Rendered preview
+
+[Download the actual MP4 and storyboard archive](https://github.com/sguzman/math-channel/actions/runs/46025896423/artifacts/15212895179) · [Successful CI run](https://github.com/sguzman/math-channel/actions/runs/46025896423).
+
+Render from commit `6986e451b9420179beb96d21de4b8bb95a265e75`: H.264, 1280×720, 30 fps, 834 frames, 27.8 seconds. Independent FFmpeg decoding completed without errors. The actual contact sheet was inspected. Oxframe reported zero errors and one dead-time warning during the 3D rotation; sampled frames of that region are distinct. User editorial feedback remains pending. The artifact is subject to GitHub Actions retention; the source remains in Git.
