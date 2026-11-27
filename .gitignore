@@ -7,3 +7,10 @@ result-*
 
 # Ignore NixOS interactive test driver history
 **/.nixos-test-history
+
+# Generated production outputs
+/out/
+/result
+/result-*
+/.direnv/
+/target/

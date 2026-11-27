@@ -1,0 +1,54 @@
+name: Oxframe trial
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-oxframe-0.24.3-${{ hashFiles('Cargo.toml', 'Cargo.lock', 'flake.nix', 'flake.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-oxframe-0.24.3-
+      - name: Resolve environment and dependencies
+        run: |
+          nix flake lock
+          nix develop -c rustc --version
+          nix develop -c ffmpeg -version
+          nix develop -c cargo generate-lockfile
+      - name: Save resolved locks
+        uses: actions/upload-artifact@v4
+        with:
+          name: resolved-lockfiles
+          path: |
+            flake.lock
+            Cargo.lock
+          if-no-files-found: error
+      - name: Compile and render
+        run: |
+          mkdir -p out
+          nix develop -c cargo run --locked --release -- check
+          nix develop -c cargo run --locked --release -- render --out out/trial.mp4
+          nix develop -c ffprobe -v error -show_format -show_streams out/trial.mp4
+      - name: Upload preview and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trial-preview
+          path: out/
+          if-no-files-found: warn
