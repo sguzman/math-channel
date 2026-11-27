@@ -18,7 +18,13 @@ cargo run --release -- render --out out/trial.mp4
 
 The first build downloads and compiles dependencies. Reuse the Nix store and Cargo cache between runs. The initial setup is not considered reproducibly pinned until both flake.lock and Cargo.lock have been generated, checked and committed. CI attempts the first build and publishes the lockfiles and preview as artifacts for review. Do not delete caches to troubleshoot routine errors.
 
-The sample animation is a technical test, not an episode or a branding proposal.
+The original smoke animation remains a technical test. A separate [example episode](episodes/0001-square-cube/README.md) exercises 2D graphics, true 3D meshes, plots and Typst typography. Render it with:
+
+```sh
+nix develop -c cargo run --release --bin example-0001 -- render --out out/example-0001.mp4
+```
+
+The example is a silent, text-led visual prototype; no permanent branding or publication is implied.
 
 ## Organization
 

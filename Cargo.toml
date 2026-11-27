@@ -2,9 +2,10 @@
 name = "math-channel"
 version = "0.1.0"
 edition = "2024"
+default-run = "math-channel"
 rust-version = "1.95"
 publish = false
 license-file = "LICENSE"
 
 [dependencies]
-oxframe = { version = "=0.24.3", default-features = false, features = ["math"] }
+oxframe = { version = "=0.24.3", default-features = false, features = ["math", "3d"] }

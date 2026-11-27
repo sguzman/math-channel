@@ -9,13 +9,15 @@
 
 ## Current checkpoint
 
-Bootstrap source and environment written. Initial CI must establish actual compilation/render results; no successful build or visual review has been established at this checkpoint. Exact lockfiles are not yet present. The first CI run is intended to produce them and a preview.
+- Bootstrap commit 10bba2da349e13906516ecaea9e6fa5d975fe680: [CI passed](https://github.com/sguzman/math-channel/actions/runs/45919333312), including dependency resolution, compilation, headless render and FFmpeg probe. Generated lockfiles were uploaded but are not yet committed; visual smoke QA is not established.
+- Example 0001: square-cube law, text-led five-scene demo. Separate Rust binary with Oxframe math and 3d features; CI now renders the original smoke and new episode and exports a contact sheet. New code compilation, rendering and visual QA remain unverified at this checkpoint.
+- No branding or upload selected. No audio recorded.
 
 ## Next steps
 
-1. Inspect initial CI logs and fix any environment, SDK API or workflow issues.
-2. Retrieve and commit the exact generated Cargo.lock and flake.lock, then validate with locked builds.
-3. Inspect preview frames/video before marking T02 passed.
-4. Continue T03–T09 in ENGINE-TRIAL.md, then make a renderer decision from evidence.
+1. Inspect the episode CI logs and fix actual failures, if any.
+2. Retrieve and commit exact lockfiles, then validate locked builds.
+3. Inspect the episode MP4/contact sheet and original smoke; record actual evidence and evaluate relevant T02–T09 criteria without claiming full coverage.
+4. Obtain user visual feedback on the example before developing production branding or a longer episode.
 
-No human installation, branding or video upload is required for this bootstrap.
+No local install required for the CI trial.
