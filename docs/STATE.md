@@ -15,7 +15,7 @@
 
 ## Next steps
 
-Examples 0001–0003 are accepted; user said Example 0003 was good. Example 0004 approved: native 1440p60 Gaussian integral production sample; render, verify, synchronize captions, review audio/thumbnail, deliver and obtain human QA.
+Examples 0001–0003 are accepted; user said Example 0003 was good. Example 0004 rendered and packaged; sampled visual QA, caption timing and audio signal checks completed. User viewing/listening is pending.
 
 No local install required for the CI trial.
 
@@ -44,3 +44,8 @@ An Orchestra of Circles: Fourier **series** of a square wave (not the continuous
 ## Example 0004
 
 Gaussian integral: five continuous scenes covering graph, square, density, native 3D radial Gaussian wire sculpture, polar area element and evaluation. Target 2560×1440 at 60 fps; original procedural stereo ambient audio, 720p preview, captions, thumbnail, upload copy. All source committed; first compile/render pending. Captions are provisional until actual scene timestamps are measured. No narration or permanent branding; no upload authorized. Prior examples preserved.
+
+
+## Render verification — 2026-11-27
+
+[Successful production CI](https://github.com/sguzman/math-channel/actions/runs/46058319141) at f418ec61141d1459c9435504c832a9e5ff27b18f. [Master and production package](https://github.com/sguzman/math-channel/actions/runs/46058319141/artifacts/15228086387). CI passed native rendering, audio mux, full master decode and layout check. Downloaded artifact; independent ffprobe confirms H.264 2560×1440 60 fps, 4901 frames, duration 81.683333 s, stereo AAC. Independently decoded 720p preview without errors. Inspected actual storyboard, one-second timeline contact sheet and thumbnail; all proof stages appear and final formula is legible. Adjusted standalone captions to sampled scene timing. Original CI ZIP contains provisional captions; use updated repository SRT until new package CI completes. Audio measurements mean −33.1 dBFS, peak −24.6 dBFS (quiet ambient bed, no clipping; subjective listening QA pending). Layout checker zero errors and one 3D dead-time warning at 34.50–45.40 s; 11 distinct decoded crop hashes from 35–45 s confirm movement. Human viewing/listening remains pending. No upload performed.

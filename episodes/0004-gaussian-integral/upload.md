@@ -6,4 +6,4 @@ Original animation and procedural ambient score. No spoken narration. Optional e
 
 Suggested tags: Gaussian integral, calculus, polar coordinates, mathematics, mathematical visualization, Oxframe.
 
-Thumbnail: final theorem frame, pending visual QA. No automatic upload.
+Thumbnail: sampled final theorem frame; legibility checked. Human presentation QA pending. No automatic upload.
