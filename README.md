@@ -36,3 +36,7 @@ The example is a silent, text-led visual prototype; no permanent branding or pub
 ## License
 
 Original source and creative materials explicitly included in this repository are released under the [Permissive Commercial License, version 1.0 — Draft 2](LICENSE). This is a custom source-available license, not an OSI-approved open-source license. Third-party dependencies and assets retain their own licenses. No trademark rights or rights in third-party media are granted. The [canonical license project](https://github.com/sguzman/permissive-commercial-license) documents the license's draft and review status.
+
+## Example 0002
+
+[The Circle Hidden in Exponentials](episodes/0002-euler-circle/README.md) — a more ambitious Euler-formula visual prototype with continuous 2D motion and native 3D geometry. Render with `nix develop --no-update-lock-file -c cargo run --locked --release --bin example-0002 -- render --out out/example-0002.mp4`. See the dedicated [CI workflow](.github/workflows/example-0002.yml). Initial render unverified.
