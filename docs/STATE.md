@@ -33,3 +33,5 @@ The Circle Hidden in Exponentials: cinematic Euler-formula episode, one continuo
 ## Example 0003
 
 An Orchestra of Circles: Fourier **series** of a square wave (not the continuous Fourier transform). Continuous linked epicycles, wave trace, native 3D separated harmonic sculpture, amplitude spectrum and convergence from 1 to 17 odd harmonics. Source and dedicated locked CI configured; compilation, render and actual QA pending. Silent prototype; previous episodes preserved.
+
+- First Example 0003 [CI](https://github.com/sguzman/math-channel/actions/runs/46052481962) failed compilation: palette helper was named `mut`, a Rust reserved keyword. Renamed helper and all calls to `muted_color`; corrected compile/render pending.

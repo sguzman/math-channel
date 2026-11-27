@@ -3,7 +3,7 @@ use oxframe::prelude::*;
 use std::f64::consts::{PI, TAU};
 fn gold()->Color {color!("#efcd87")}
 fn ivory()->Color {color!("#f5eee4")}
-fn mut()->Color {color!("#a5a6bb")}
+fn muted_color()->Color {color!("#a5a6bb")}
 fn grid()->Color {color!("#394254")}
 fn colors()->[Color;5] {[color!("#71e1c1"),color!("#78c9f2"),color!("#a9a2f9"),color!("#e3a1db"),color!("#efcd87")]}
 
@@ -28,7 +28,7 @@ fn backdrop(view:View) {
 #[oxframe::scene]
 async fn orchestra(view:View) {
     backdrop(view);
-    let small=view.add(Txt::new().text("T H E   M A T H E M A T I C S   O F   H A R M O N Y").font_size(20).weight(500).fill(mut()).y(-160.0).opacity(0.0));
+    let small=view.add(Txt::new().text("T H E   M A T H E M A T I C S   O F   H A R M O N Y").font_size(20).weight(500).fill(muted_color()).y(-160.0).opacity(0.0));
     let title=view.add(Txt::new().text("An orchestra of circles").font_size(66).weight(700).fill(ivory()).y(-77.0).opacity(0.0));
     let hero=view.add(Math::new("sin t + 1/3 sin(3t) + 1/5 sin(5t) + dots").size(53.0).color(gold()).y(62.0).opacity(0.0));
     all((small.opacity().to(1.0,1.2),title.opacity().to(1.0,1.5),hero.opacity().to(1.0,2.0))).await;
@@ -61,7 +61,7 @@ async fn orchestra(view:View) {
     graph.add(Line::new().points([(-w/2.0,-133.0),(-w/2.0,133.0)]).stroke(grid()).line_width(1.2));
     let target=graph.add(Group::new().opacity(0.0));
     for (x0,x1,y) in [(-230.0,0.0,-100.0),(0.0,230.0,100.0)] {
-        target.add(Line::new().points([(x0,y),(x1,y)]).stroke(mut()).line_width(2.0).opacity(0.65));
+        target.add(Line::new().points([(x0,y),(x1,y)]).stroke(muted_color()).line_width(2.0).opacity(0.65));
     }
     let curve=graph.add(Line::new().points([(0.0,0.0),(1.0,0.0)]).stroke(gold()).line_width(3.5));
     let (p,n)=(phase.clone(),count.clone());curve.points().bind(move|| {
@@ -132,14 +132,14 @@ async fn spectrum(view:View) {
     }
     let frame=view.add(View3d::new(&world).size(760.0,440.0).x(-170.0).y(8.0).opacity(0.0));
     let bars=view.add(Group::new().x(355.0).y(8.0).opacity(0.0));
-    bars.add(Txt::new().text("ODD HARMONICS").font_size(20).fill(mut()).y(-166.0));
+    bars.add(Txt::new().text("ODD HARMONICS").font_size(20).fill(muted_color()).y(-166.0));
     for j in 0..5 {
         let y=-108.0+j as f64*52.0;
         bars.add(Math::new(format!("{}",2*j+1)).size(29.0).color(colors()[j]).x(-109.0).y(y));
         let width=156.0/(2*j+1) as f64;
         bars.add(Rect::new().width(width).height(12.0).fill(colors()[j]).x(-75.0+width/2.0).y(y));
     }
-    bars.add(Txt::new().text("Relative amplitude").font_size(21).fill(mut()).y(157.0));
+    bars.add(Txt::new().text("Relative amplitude").font_size(21).fill(muted_color()).y(157.0));
     let note=view.add(Txt::new().text("Each frequency contributes its own wave.").font_size(29).fill(ivory()).y(270.0).opacity(0.0));
     all((frame.opacity().to(1.0,1.6),bars.opacity().to(1.0,1.6),note.opacity().to(1.0,1.6))).await;
     all((sculpture.rotation().to(Vec3::new(0.0,105.0,0.0),10.0).ease(presets::LINEAR),
@@ -158,7 +158,7 @@ async fn convergence(view:View) {
     for y in [-130.0,0.0,130.0] {plot.add(Line::new().points([(-470.0,y),(470.0,y)]).stroke(grid()).line_width(1.2));}
     plot.add(Line::new().points([(-470.0,-166.0),(-470.0,166.0)]).stroke(grid()).line_width(1.2));
     for (a,b,y) in [(-470.0,0.0,-130.0),(0.0,470.0,130.0)] {
-        plot.add(Line::new().points([(a,y),(b,y)]).stroke(mut()).line_width(2.0).opacity(0.62));
+        plot.add(Line::new().points([(a,y),(b,y)]).stroke(muted_color()).line_width(2.0).opacity(0.62));
     }
     let wave=plot.add(Line::new().points([(0.0,0.0),(1.0,0.0)]).stroke(gold()).line_width(3.5));
     let c=n.clone();wave.points().bind(move|| {
@@ -177,14 +177,14 @@ async fn convergence(view:View) {
     wait_for(1.6).await;
     all((plot.opacity().to(0.0,1.5),title.opacity().to(0.0,1.0),l3.opacity().to(0.0,1.0),formula.y().to(-45.0,1.8),formula.scale().to(1.14,1.8))).await;
     let close=view.add(Txt::new().text("Complexity is a harmony of simple things.").font_size(32).fill(ivory()).y(110.0).opacity(0.0));
-    let note=view.add(Txt::new().text("The Fourier series of a square wave").font_size(24).fill(mut()).y(170.0).opacity(0.0));
+    let note=view.add(Txt::new().text("The Fourier series of a square wave").font_size(24).fill(muted_color()).y(170.0).opacity(0.0));
     all((close.opacity().to(1.0,1.6),note.opacity().to(1.0,1.6))).await;
     wait_for(2.5).await;
     all((formula.opacity().to(0.0,1.3),close.opacity().to(0.0,1.3),note.opacity().to(0.0,1.3))).await;
 }
 fn main() {
     let mut theme=Theme::dark().accent(gold());
-    theme.background=color!("#0c111c");theme.text=ivory();theme.muted=mut();
+    theme.background=color!("#0c111c");theme.text=ivory();theme.muted=muted_color();
     Project::new("example-0003-fourier-orchestra").size(1280,720).fps(30).theme(theme)
         .scene(orchestra()).scene(spectrum()).scene(convergence()).main();
 }
